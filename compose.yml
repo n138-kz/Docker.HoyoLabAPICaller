@@ -1,0 +1,10 @@
+services:
+ python:
+  image: python:3.14
+  command:
+   - 'python3.14'
+   - '-V'
+  volumes:
+   - type: bind
+     source: compose-python
+     target: /media
