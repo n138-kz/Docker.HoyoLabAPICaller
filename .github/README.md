@@ -1,7 +1,5 @@
 # [Docker.HoyoLabAPICaller](https://github.com/n138-kz/Docker.HoyoLabAPICaller)
 
-[![GitHub Extra Pins](https://github-readme-stats.vercel.app/api/pin/?locale=ja&show_owner=true&theme=graywhite&username=n138-kz&repo=Docker.HoyoLabAPICaller)](https://github.com/n138-kz/Docker.HoyoLabAPICaller)
-
 ## Repos Info
 
 <div align="center">
