@@ -1,0 +1,15 @@
+services:
+  discord-emv-core:
+    build:
+      context: .
+      dockerfile: ./build-env/Dockerfile
+    restart: always
+    volumes:
+      - type: bind
+        source: ./
+        target: /media/
+        read_only: true
+      - type: bind
+        source: ./log/
+        target: /log/custom/
+        read_only: false

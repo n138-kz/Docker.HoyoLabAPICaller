@@ -1,0 +1,40 @@
+name: Docker Container Build
+
+on:
+  workflow_dispatch:
+  push:
+    paths: [ 'Dockerfile', 'docker-compose.yml' ]
+
+permissions:
+  contents: read
+
+jobs:
+  send_github_context:
+    uses: n138-kz/n138-kz/.github/workflows/github-act_send_github_context.yml@main
+    secrets: inherit # pass all secrets
+
+  docker_login:
+    uses: n138-kz/n138-kz/.github/workflows/github-act_docker_login.yml@main
+    secrets: inherit # pass all secrets
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Create test .env
+      run: touch .env
+
+    - name: Build the Image
+      run: docker compose build --no-cache
+
+    - name: Test run
+      run: docker compose up -d
+
+    - name: Wait 5s
+      run: sleep 5
+
+    - name: Print logs
+      run: docker compose logs
